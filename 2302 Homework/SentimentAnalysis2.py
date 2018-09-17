@@ -1,7 +1,7 @@
 """
 CS 2302: LAB 1 Option B
 From: ISAAC ACOSTA
-DATE: 9/17/18
+DATE: 9/12/18
 """
 
 import nltk
@@ -17,18 +17,14 @@ reddit = praw.Reddit(client_id='BtG-jWLucK3zOQ',
 #nltk.download('vader_lexicon')
 sid = SentimentIntensityAnalyzer()
 
-
 def get_text_negative_proba(text):
    return sid.polarity_scores(text)['neg']
-
 
 def get_text_neutral_proba(text):
    return sid.polarity_scores(text)['neu']
 
-
 def get_text_positive_proba(text):
    return sid.polarity_scores(text)['pos']
-
 
 def get_submission_comments(url):
     submission = reddit.submission(url=url)
@@ -36,6 +32,7 @@ def get_submission_comments(url):
 
     return submission.comments
 
+  
 #   LIST GENREATOR RECURSIVELY
 def get_list(comment, x, y, z):
     list = []
@@ -124,7 +121,6 @@ def main():
         print("Error: Check Your Indexes and Range.")
     except TypeError:
         print("Error: Check that Range is actually an integer.")
-
 
 
 main()
