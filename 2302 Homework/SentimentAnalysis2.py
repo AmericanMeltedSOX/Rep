@@ -105,7 +105,6 @@ def main():
             neutral_comments_list += get_list(top_level_comment, 2, 1, 0)
 
         neutral_comments_list.reverse()
-        #print_list(neutral_comments_list, 2)
 
 
         """PRINT LIST OPTION"""
