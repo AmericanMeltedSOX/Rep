@@ -1,7 +1,7 @@
 """
 CS 2302: LAB 1 Option B
 From: ISAAC ACOSTA
-DATE: 9/12/18
+DATE: 9/17/18
 """
 
 import nltk
