@@ -108,7 +108,7 @@ def main():
 
 
         """PRINT LIST OPTION"""
-        ans = (input("Do you wish to print the three list? Y/N "))
+        ans = (input("Do you wish to print the three lists? Y/N "))
         if ans == "Y" or ans == "y":
             print_list(negative_comments_list, 0, 1)
             print_list(positive_comments_list, 1, 1)
