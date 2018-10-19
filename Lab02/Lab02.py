@@ -1,3 +1,9 @@
+"""CS 2302
+Submitted and Modified by: ISAAC ACOSTA
+Instructor: Aguirre, Diego
+Date: 08/18/18
+Assignment: Lab 02"""
+
 import time
 
 class Node:
