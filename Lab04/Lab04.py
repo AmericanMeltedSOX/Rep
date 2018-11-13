@@ -84,24 +84,38 @@ def main():
 
     # Reads text file words.txt
     file = open('words.txt', 'r')
-    table_size = 512
+    table_size = 50060
 
+    print()
     start_time = time.time()    # Gets running time for Hash table operations
     engish_words = populate_hash(file, table_size)
     end_time = time.time()
     print("Creation of hash table running time:", end_time - start_time)    # Prints running time to create Hash Table
+    file.close()
+    print()
 
 
     start_time = time.time()    # Gets time to retrieve a string from table
     print(engish_words.search("blue"))
     end_time = time.time()
     print("Retrieval of word, running time:", end_time - start_time) # Prints running time to retrieve from hash table
+    print()
+
+    file = open('myWords2.txt', 'r')
+
+    start_time = time.time()
+    greatest_word, anagram_count = greatest_anagrams(file, engish_words)
+    end_time = time.time()
+    print("Word with greatest number of anagrams:", greatest_word, "ANAGRAMS:", anagram_count)
+    print("Word with greatest number of anagrams running time:", end_time - start_time)
+    print()
 
 
     start_time = time.time()    # Finds running time for find_anagrams algorithm
     print(num_of_anagrams("spot", engish_words, 0, ""))
     end_time = time.time()
     print("Find anagrams algorithm running time:", end_time - start_time)   # Prints running time for finding anagrams
+    print()
 
     print("Hash table load factor for length", table_size, ":")
     print( engish_words.get_load_factor() )                      # Returns load factor
@@ -118,6 +132,23 @@ def populate_hash(file, table_size):
     file.close()    # Returns hash table
     return hash_table
 
+# Finds string with greatest number of anagrams in text file
+def greatest_anagrams(file, hash_table):
+    max = 0
+    for line in file:
+        line = line.rstrip('\n')
+        curr = num_of_anagrams(line, hash_table, 0, "")
+        if curr > max:  # Checks if curr is greater than max
+            max = curr
+            word = line
+    file.close()
+
+    if max == 0:    # Returns 0 anagrams
+        return "NO ANAGRAMS FOUND", 0
+    else:   # Returns the greatest number  of anagrams along with the respective string
+        return word, max
+
+
 # Get Number of anagrams for a String
 def num_of_anagrams(word, hash_table, n, prefix=""):
     if len(word) <= 1:
@@ -125,7 +156,7 @@ def num_of_anagrams(word, hash_table, n, prefix=""):
 
         find_anagram = hash_table.search(str)
         if find_anagram is not None:
-            print(find_anagram)
+            #print(find_anagram)
             n+=1    # Adds one if string is found in the hash table
 
     else:
