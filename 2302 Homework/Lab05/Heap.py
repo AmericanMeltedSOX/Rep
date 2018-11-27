@@ -1,3 +1,10 @@
+"""
+CS 2302
+Assignment: LAB 5 OPTION A
+From: Isaac Acosta
+Date: 11/17/18
+"""
+
 class Heap:
 
   def __init__(self):
