@@ -13,31 +13,22 @@ import time
 def main():
 
         # Graph 1
-      graph = GraphAL(initial_num_vertices=11, is_directed=True)
+      graph = GraphAL(initial_num_vertices=7, is_directed=True)
       #graph = GraphAM(initial_num_vertices=11, is_directed=True)
 
       graph.add_edge(0, 1)
-      graph.add_edge(0, 2)
-      graph.add_edge(0, 3)
+      graph.add_edge(0, 4)
 
-      graph.add_edge(1, 4)
-      graph.add_edge(2, 5)
+      graph.add_edge(1, 2)
+      graph.add_edge(2, 3)
       graph.add_edge(3, 6)
 
-      graph.add_edge(4, 7)
-      graph.add_edge(5, 8)
-      graph.add_edge(6, 9)
+      graph.add_edge(4, 5)
+      graph.add_edge(4, 1)
+      graph.add_edge(5, 6)
+      graph.add_edge(5, 1)
+      graph.add_edge(5, 3)
 
-      graph.add_edge(7, 10)
-      graph.add_edge(8, 10)
-      graph.add_edge(9, 10)
-
-
-      #   /--> 1 -> 4 -> 7 -\
-      #  /                   \
-      # 0 -> 2 -> 5 -> 8------> 10
-      #  \                  /
-      #  \--> 3 -> 6 -> 9--/
 
         # Graph 2
       graph_2 = GraphAL(4, False)
